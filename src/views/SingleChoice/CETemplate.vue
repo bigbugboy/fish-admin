@@ -2,19 +2,19 @@
     <div class="container">
         <el-form :model="handleData" label-position="left" label-width="100px">
             <el-form-item label="题干" class="form-item">
-                <el-input type="textarea" v-model="handleData.question"></el-input>
+                <WangEdirot fieldName="question" :fieldValue="handleData.question" @callback="updatehandleData" />
             </el-form-item>
             <el-form-item label="A选项" class="form-item">
-                <el-input type="textarea" v-model="handleData.choice_a"></el-input>
+                <WangEdirot fieldName="choice_a" :fieldValue="handleData.choice_a" @callback="updatehandleData" />
             </el-form-item>
             <el-form-item label="B选项" class="form-item">
-                <el-input type="textarea" v-model="handleData.choice_b"></el-input>
+                <WangEdirot fieldName="choice_b" :fieldValue="handleData.choice_b" @callback="updatehandleData" />
             </el-form-item>
             <el-form-item label="C选项" class="form-item">
-                <el-input type="textarea" v-model="handleData.choice_c"></el-input>
+                <WangEdirot fieldName="choice_c" :fieldValue="handleData.choice_c" @callback="updatehandleData" />
             </el-form-item>
             <el-form-item label="D选项" class="form-item">
-                <el-input type="textarea" v-model="handleData.choice_d"></el-input>
+                <WangEdirot fieldName="choice_d" :fieldValue="handleData.choice_d" @callback="updatehandleData" />
             </el-form-item>
             <el-form-item label="正确答案" class="form-item">
                 <el-select v-model="handleData.choice_right" placeholder="请选择正确答案">
@@ -22,7 +22,7 @@
                 </el-select>
             </el-form-item>
             <el-form-item label="解析" class="form-item">
-                <el-input type="textarea" v-model="handleData.desc"></el-input>
+                <WangEdirot fieldName="desc" :fieldValue="handleData.desc" @callback="updatehandleData" />
             </el-form-item>
 
             <el-form-item label="难度系数" class="form-item">
@@ -52,8 +52,10 @@
 import scApi from '@/api/sc'
 import levelApi from '@/api/level'
 import categoryApi from '@/api/category'
+import WangEdirot from '@/components/WangEditor.vue'
 export default {
     name: 'CETemplate',
+    components: {WangEdirot},
     data() {
         return {
             handleData: {},
@@ -102,6 +104,9 @@ export default {
         },
         onCancel() {
             this.$router.go(-1)
+        },
+        updatehandleData(key, val){
+            this.handleData[key] = val
         },
     }
 
