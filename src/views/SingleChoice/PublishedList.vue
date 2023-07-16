@@ -7,7 +7,11 @@
       <el-table-column prop="id" label="ID" width="100" />
       <el-table-column prop="level_id" label="难度等级" width="100" />
       <el-table-column prop="category_id" label="类型" width="100" />
-      <el-table-column prop="question" label="问题" min-width="300" />
+      <el-table-column label="问题" min-width="300">
+        <template slot-scope="scope">
+          <div v-html="scope.row.question"></div>
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="mini" @click="gotoDetailPage(scope.$index, scope.row)">详情</el-button>

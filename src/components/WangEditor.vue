@@ -1,7 +1,7 @@
 <template>
     <div style="border: 1px solid #ccc;">
         <Toolbar style="border-bottom: 1px solid #ccc" :editor="editor" :defaultConfig="toolbarConfig" :mode="mode" />
-        <Editor style="min-height: 300px; overflow-y: hidden;" v-model="html" :defaultConfig="editorConfig" :mode="mode"
+        <Editor style="height: 300px; overflow-y: hidden;" v-model="html" :defaultConfig="editorConfig" :mode="mode"
             @onCreated="onCreated" @onChange="onChange" />
     </div>
 </template>

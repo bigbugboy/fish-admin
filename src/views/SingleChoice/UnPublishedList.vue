@@ -7,7 +7,11 @@
       <el-table-column prop="id" label="ID" width="100" />
       <el-table-column prop="level_id" label="难度等级" width="100" />
       <el-table-column prop="category_id" label="类型" width="100" />
-      <el-table-column prop="question" label="问题" min-width="300" />
+      <el-table-column label="问题" min-width="300">
+        <template slot-scope="scope">
+          <div v-html="scope.row.question"></div>
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="mini" @click="gotoDetailPage(scope.$index, scope.row)">审核</el-button>
@@ -31,7 +35,7 @@ export default {
     }
   },
   created() {
-    this.loadData({status: 0})
+    this.loadData({ status: 0 })
   },
   methods: {
     loadData(paramas) {
@@ -41,9 +45,9 @@ export default {
         console.log(error);
       })
     },
-    onPageChange(page){
+    onPageChange(page) {
       console.log('当前页', page)
-      this.loadData({page: page, size: 10, status: 0})
+      this.loadData({ page: page, size: 10, status: 0 })
     },
     gotoCreatePage() {
       this.$router.push({ path: '/sc/detail' })
@@ -57,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-.paginationBox{
+.paginationBox {
   margin-top: 50px;
   text-align: center;
 }

@@ -8,9 +8,6 @@
 <script>
 export default {
     name: 'Breadcrumb',
-    created() {
-        console.log(this.$route);
-    },
     computed: {
         breadcrumbItems() {
             let bis = this.$route.matched

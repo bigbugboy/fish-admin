@@ -58,7 +58,7 @@ export default {
     components: {WangEdirot},
     data() {
         return {
-            handleData: {},
+            handleData: {status: false},
             choices: ['A', 'B', 'C', 'D'],
             levels: [],
             categories: [],

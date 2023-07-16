@@ -6,6 +6,7 @@
     </div>
 
     <!-- 内容展示区 -->
+    <Breadcrumb />
     <!-- 也就是二级路由(左侧菜单)的出口 -->
     <router-view></router-view>
   </div>
